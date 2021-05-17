@@ -1,0 +1,33 @@
+<div class="d-grid gap-3 mx-auto" style="width: 50vw">
+
+    <h1 class="display-5 text-center">Capture this moment!</h1>
+
+    <%= form_with scope: :article, url: article_create_path, local: true do |f| %>
+
+        <div>
+            <% if @article.errors.any? %>
+                <ul>
+                    <% @article.errors.full_messages.each do |message|%>
+                        <li>
+                            <%= message %>
+                        </li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </div>    
+        
+        <div class="mb-3">
+            <%= f.label :name, for:"exampleFormControlInput1", class:"form-label" %>
+            <%= f.text_field :name, class:"form-control", id:"exampleFormControlInput1" %>
+        </div>
+        
+        <div class="mb-3">
+            <%= f.label :body, for:"exampleFormControlTextarea1", class:"form-label" %>
+            <%= f.text_area :body, class:"form-control", id:"exampleFormControlTextarea1", rows:"7", style:"resize: none;" %>
+        </div>
+        
+        <div>
+            <%= f.submit class:"btn btn-success" %>
+        </div>
+    <% end %>
+</div>
