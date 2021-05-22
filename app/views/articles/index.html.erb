@@ -2,7 +2,7 @@
     <h1 class="display-5 text-center">Capturing your moments through words</h1>
     <%= link_to 'New moment', articles_new_path, class:"btn btn-success mx-auto", style:"width: 150px;" %>
 
-    <% @articles.sort_by { |p| p["updated_at"] }.reverse.each do |article| %>
+    <% @articles.order(updated_at: :desc).each do |article| %>
         <div class="card mx-auto" style="width: 50vw;">
             <h5 class="card-header"><%= article.name %></h5>
             <div class="card-body">
