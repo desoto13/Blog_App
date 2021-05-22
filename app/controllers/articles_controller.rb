@@ -1,5 +1,9 @@
 class ArticlesController < ApplicationController
-
+    @article = Article.new
+    @article.name  = "Sample Name"
+    @article.body = "Sample Body"
+    @article.save
+    
     def index
         @articles = Article.all
     end
